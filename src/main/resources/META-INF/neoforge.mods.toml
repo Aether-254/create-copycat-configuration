@@ -34,13 +34,13 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.create_copycat_configuration]]
-
-[[dependencies.create_copycat_configuration]]
 modId="copycats"
 type="optional"
 versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.create_copycat_configuration]]
 modId="cloth_config"
 type="required"
 versionRange="[15.0.140,)"
