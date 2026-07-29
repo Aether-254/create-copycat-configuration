@@ -3,37 +3,34 @@ loaderVersion="[4,)"
 license="MIT"
 
 [[mods]]
-modId="create_unrestricted_vault"
+modId="create_regex_filter"
 version="\${version}"
-displayName="Create: Unrestricted Vault"
+displayName="Create: Regex Filter"
 authors="Aether_254"
-description='''Makes Create Item Vault width and length limits configurable and adds optional vertical Item Vaults without changing Vault Capability.'''
+description='''Adds a Create filter that matches item registry names or item tags with separate regular expressions.'''
 
-[[mixins]]
-config="create_unrestricted_vault.mixins.json"
-
-[[dependencies.create_unrestricted_vault]]
+[[dependencies.create_regex_filter]]
 modId="neoforge"
 type="required"
 versionRange="[21.1.219,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_unrestricted_vault]]
+[[dependencies.create_regex_filter]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_unrestricted_vault]]
+[[dependencies.create_regex_filter]]
 modId="create"
 type="required"
 versionRange="[6.0.11,)"
 ordering="AFTER"
 side="BOTH"
 
-[[dependencies.create_unrestricted_vault]]
+[[dependencies.create_regex_filter]]
 modId="cloth_config"
 type="required"
 versionRange="[15.0.140,)"
