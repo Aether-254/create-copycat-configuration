@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "create-regex-filter"
+rootProject.name = "create-copycat-configuration"

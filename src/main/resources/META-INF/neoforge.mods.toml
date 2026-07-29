@@ -3,34 +3,44 @@ loaderVersion="[4,)"
 license="MIT"
 
 [[mods]]
-modId="create_regex_filter"
+modId="create_copycat_configuration"
 version="\${version}"
-displayName="Create: Regex Filter"
+displayName="Create: Copycat Configuration"
 authors="Aether_254"
-description='''Adds a Create filter that matches item registry names or item tags with separate regular expressions.'''
+description='''Adds per-block collision, light occlusion, and brightness settings to Create and Copycats+ copycat blocks.'''
 
-[[dependencies.create_regex_filter]]
+[[mixins]]
+config="create_copycat_configuration.mixins.json"
+
+[[dependencies.create_copycat_configuration]]
 modId="neoforge"
 type="required"
 versionRange="[21.1.219,)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_regex_filter]]
+[[dependencies.create_copycat_configuration]]
 modId="minecraft"
 type="required"
 versionRange="[1.21.1,1.21.2)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_regex_filter]]
+[[dependencies.create_copycat_configuration]]
 modId="create"
 type="required"
 versionRange="[6.0.11,)"
 ordering="AFTER"
 side="BOTH"
 
-[[dependencies.create_regex_filter]]
+[[dependencies.create_copycat_configuration]]
+
+[[dependencies.create_copycat_configuration]]
+modId="copycats"
+type="optional"
+versionRange="[0,)"
+ordering="AFTER"
+side="BOTH"
 modId="cloth_config"
 type="required"
 versionRange="[15.0.140,)"
