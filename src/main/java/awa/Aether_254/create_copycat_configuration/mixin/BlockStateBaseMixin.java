@@ -56,11 +56,4 @@ public abstract class BlockStateBaseMixin {
             cir.setReturnValue(!data.copycatConfig$lightOcclusion());
     }
 
-    @Inject(method = "getLightEmission", at = @At("HEAD"), cancellable = true)
-    private void copycatConfig$brightness(BlockGetter level, BlockPos pos,
-                                          CallbackInfoReturnable<Integer> cir) {
-        CopycatSettingsData data = CopycatSettingsHelper.get(level, pos, (BlockState) (Object) this);
-        if (data != null)
-            cir.setReturnValue(data.copycatConfig$brightness());
-    }
 }
