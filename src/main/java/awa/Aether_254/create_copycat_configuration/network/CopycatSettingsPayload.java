@@ -51,10 +51,12 @@ public record CopycatSettingsPayload(BlockPos pos, boolean collision, boolean li
             data.copycatConfig$set(payload.collision, payload.lightOcclusion, light);
             blockEntity.setChanged();
             var auxiliary = level.getAuxLightManager(new ChunkPos(payload.pos));
-            if (light == 0)
-                auxiliary.removeLightAt(payload.pos);
-            else
-                auxiliary.setLightAt(payload.pos, light);
+            if (auxiliary != null) {
+                if (light == 0)
+                    auxiliary.removeLightAt(payload.pos);
+                else
+                    auxiliary.setLightAt(payload.pos, light);
+            }
             level.getChunkSource().getLightEngine().checkBlock(payload.pos);
             level.sendBlockUpdated(payload.pos, state, state, 3);
         });

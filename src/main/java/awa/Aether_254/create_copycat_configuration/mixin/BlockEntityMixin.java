@@ -55,6 +55,8 @@ public abstract class BlockEntityMixin implements CopycatSettingsData {
         if (!CopycatSettingsHelper.isCopycat(self.getBlockState().getBlock()))
             return;
         var auxiliary = level.getAuxLightManager(new ChunkPos(self.getBlockPos()));
+        if (auxiliary == null)
+            return;
         if (copycatConfig$brightness == 0)
             auxiliary.removeLightAt(self.getBlockPos());
         else
