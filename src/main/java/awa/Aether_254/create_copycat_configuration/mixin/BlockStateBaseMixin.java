@@ -36,8 +36,8 @@ public abstract class BlockStateBaseMixin {
     private void copycatConfig$occlusionShape(BlockGetter level, BlockPos pos,
                                               CallbackInfoReturnable<VoxelShape> cir) {
         CopycatSettingsData data = CopycatSettingsHelper.get(level, pos, (BlockState) (Object) this);
-        if (data != null && !data.copycatConfig$lightOcclusion())
-            cir.setReturnValue(Shapes.empty());
+        if (data != null)
+            cir.setReturnValue(data.copycatConfig$lightOcclusion() ? Shapes.block() : Shapes.empty());
     }
 
     @Inject(method = "getLightBlock", at = @At("HEAD"), cancellable = true)
