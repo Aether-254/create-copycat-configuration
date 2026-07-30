@@ -44,15 +44,23 @@ public abstract class BlockStateBaseMixin {
     private void copycatConfig$lightBlock(BlockGetter level, BlockPos pos,
                                           CallbackInfoReturnable<Integer> cir) {
         CopycatSettingsData data = CopycatSettingsHelper.get(level, pos, (BlockState) (Object) this);
-        if (data != null && !data.copycatConfig$lightOcclusion())
-            cir.setReturnValue(0);
+        if (data != null)
+            cir.setReturnValue(data.copycatConfig$lightOcclusion() ? 15 : 0);
     }
 
     @Inject(method = "propagatesSkylightDown", at = @At("HEAD"), cancellable = true)
     private void copycatConfig$skylight(BlockGetter level, BlockPos pos,
                                         CallbackInfoReturnable<Boolean> cir) {
         CopycatSettingsData data = CopycatSettingsHelper.get(level, pos, (BlockState) (Object) this);
-        if (data != null && !data.copycatConfig$lightOcclusion())
-            cir.setReturnValue(true);
+        if (data != null)
+            cir.setReturnValue(!data.copycatConfig$lightOcclusion());
+    }
+
+    @Inject(method = "getLightEmission", at = @At("HEAD"), cancellable = true)
+    private void copycatConfig$brightness(BlockGetter level, BlockPos pos,
+                                          CallbackInfoReturnable<Integer> cir) {
+        CopycatSettingsData data = CopycatSettingsHelper.get(level, pos, (BlockState) (Object) this);
+        if (data != null)
+            cir.setReturnValue(data.copycatConfig$brightness());
     }
 }

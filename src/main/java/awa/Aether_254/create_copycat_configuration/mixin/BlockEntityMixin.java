@@ -38,11 +38,20 @@ public abstract class BlockEntityMixin implements CopycatSettingsData {
             copycatConfig$occlusion = tag.getBoolean("CopycatConfigOcclusion");
         if (tag.contains("CopycatConfigBrightness"))
             copycatConfig$brightness = Math.max(0, Math.min(15, tag.getByte("CopycatConfigBrightness")));
+        copycatConfig$applyLight();
     }
 
     @Inject(method = "setLevel", at = @At("TAIL"))
     private void copycatConfig$setLevel(Level level, CallbackInfo ci) {
+        copycatConfig$applyLight();
+    }
+
+    @Unique
+    private void copycatConfig$applyLight() {
         BlockEntity self = (BlockEntity) (Object) this;
+        Level level = self.getLevel();
+        if (level == null)
+            return;
         if (!CopycatSettingsHelper.isCopycat(self.getBlockState().getBlock()))
             return;
         var auxiliary = level.getAuxLightManager(new ChunkPos(self.getBlockPos()));
